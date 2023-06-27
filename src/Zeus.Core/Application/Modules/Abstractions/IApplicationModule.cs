@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Zeus.Core.Application.Modules.Abstractions
+﻿namespace Zeus.Core.Application.Modules.Abstractions
 {
     public interface IApplicationModule
     {
+        Task ConfigureServicesAsync(IApplicationServiceConfiguration config);
+
+        void ConfigureServices(IApplicationServiceConfiguration config);
     }
 }

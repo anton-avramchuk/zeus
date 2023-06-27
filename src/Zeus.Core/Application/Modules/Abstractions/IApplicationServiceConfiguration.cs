@@ -4,9 +4,9 @@ namespace Zeus.Core.Application.Modules.Abstractions
 {
     public interface IApplicationServiceConfiguration
     {
-         IServiceCollection Services { get; }
+        IServiceCollection Services { get; }
 
-         IDictionary<string, object?> Items { get; }
+        IDictionary<string, object?> Items { get; }
 
         object? this[string key] { get; set; }
     }

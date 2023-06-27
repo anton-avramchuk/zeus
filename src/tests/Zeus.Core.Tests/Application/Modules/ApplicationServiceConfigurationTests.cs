@@ -27,7 +27,7 @@ namespace Zeus.Core.Tests.Application.Modules
         [TestCase]
         public void CheckItemsIsNotNull()
         {
-            var config=Create();
+            var config = Create();
 
             Assert.IsNotNull(config.Items);
         }
@@ -44,7 +44,7 @@ namespace Zeus.Core.Tests.Application.Modules
         public void CheckByKeyIsNull()
         {
             var key = "key";
-            var config= Create();
+            var config = Create();
 
             Assert.IsNull(config[key]);
         }
@@ -53,7 +53,7 @@ namespace Zeus.Core.Tests.Application.Modules
         public void CheckByKeyIsSameObject()
         {
             var key = "key";
-            var obj=new object();
+            var obj = new object();
             var config = Create();
             config[key] = obj;
             Assert.That(config[key], Is.SameAs(obj));
@@ -64,10 +64,10 @@ namespace Zeus.Core.Tests.Application.Modules
         {
             var key = "key";
             var obj = new object();
-            var obj2=new object();
+            var obj2 = new object();
             var config = Create();
             config[key] = obj;
-            config[key]=obj2;
+            config[key] = obj2;
             Assert.That(config[key], Is.Not.SameAs(obj));
         }
 
