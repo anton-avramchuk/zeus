@@ -7,16 +7,16 @@ namespace Zeus.Core.Application.Modules
 {
     public abstract class ApplicationModule : IApplicationModule, IOnApplicationInitialization, IOnPreApplicationInitialization, IOnPostApplicationInitialization
     {
-        public IServiceProvider ServiceProvider => throw new NotImplementedException();
 
-        public void ConfigureServices(IApplicationServiceConfiguration config)
+        public virtual void ConfigureServices(IApplicationServiceConfiguration config)
         {
-            throw new NotImplementedException();
+            
         }
 
         public Task ConfigureServicesAsync(IApplicationServiceConfiguration config)
         {
-            throw new NotImplementedException();
+            ConfigureServices(config);
+            return Task.CompletedTask;
         }
 
         public static bool IsAapplicationModule(Type type)

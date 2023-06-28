@@ -1,10 +1,9 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using Zeus.Core.Application.Abstraction;
-using Zeus.Core.Application.DependencyInjection.Abstractions;
 
 namespace Zeus.Core.Application.Modules.Abstractions
 {
-    public interface IOnPreApplicationInitialization: IServiceProviderAccessor
+    public interface IOnPreApplicationInitialization
     {
         Task OnPreApplicationInitializationAsync([NotNull] IApplicationInitializationContext context);
 
