@@ -38,9 +38,34 @@ namespace Zeus.Core.Tests.Application.Modules
         }
 
 
+        [Test]
+        public void CheckIsApplicationModule()
+        {
+            var module = Create();
+            Assert.IsTrue(ApplicationModule.IsApplicationModule(module.GetType()));
+        }
+
+        [Test]
+        public void CheckIsNotApplicationModule()
+        {
+            var module = new object();
+            Assert.IsFalse(ApplicationModule.IsApplicationModule(module.GetType()));
+        }
+
+        [Test]
+        public void CheckOnPostApplicationInitialization()
+        {
+            var module = Create();
+            module.OnPostApplicationInitialization(_applicationInitializationContextMock.Object);
+        }
 
 
-
+        [Test]
+        public async Task CheckOnPostApplicationInitializationAsync()
+        {
+            var module = Create();
+            await module.OnPostApplicationInitializationAsync(_applicationInitializationContextMock.Object);
+        }
 
     }
 }

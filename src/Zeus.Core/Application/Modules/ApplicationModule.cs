@@ -19,7 +19,7 @@ namespace Zeus.Core.Application.Modules
             return Task.CompletedTask;
         }
 
-        public static bool IsAapplicationModule(Type type)
+        public static bool IsApplicationModule(Type type)
         {
             var typeInfo = type.GetTypeInfo();
 
@@ -32,20 +32,21 @@ namespace Zeus.Core.Application.Modules
 
         internal static void CheckIsApplicationModuleType(Type moduleType)
         {
-            if (!IsAapplicationModule(moduleType))
+            if (!IsApplicationModule(moduleType))
             {
                 throw new ArgumentException("Given type is not an Zeus module: " + moduleType.AssemblyQualifiedName);
             }
         }
 
-        public Task OnPostApplicationInitializationAsync([NotNull] IApplicationInitializationContext context)
+        public virtual  Task OnPostApplicationInitializationAsync([NotNull] IApplicationInitializationContext context)
         {
-            throw new NotImplementedException();
+            OnPostApplicationInitialization(context);
+            return Task.CompletedTask;
         }
 
-        public void OnPostApplicationInitialization([NotNull] IApplicationInitializationContext context)
+        public virtual void OnPostApplicationInitialization([NotNull] IApplicationInitializationContext context)
         {
-            throw new NotImplementedException();
+            
         }
 
         public Task OnPreApplicationInitializationAsync([NotNull] IApplicationInitializationContext context)
