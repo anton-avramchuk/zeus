@@ -32,4 +32,5 @@ namespace Zeus.Core.Application.Modules
             Items = new Dictionary<string, object?>();
         }
     }
+
 }
