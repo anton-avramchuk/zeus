@@ -85,14 +85,26 @@ namespace Zeus.Core.Tests.Application.Modules
 
         public override void PostConfigureServices(IApplicationServiceConfiguration context)
         {
-            PostConfigureServicesIsCalled=true;
+            PostConfigureServicesIsCalled = true;
             base.PostConfigureServices(context);
         }
 
         public override Task PostConfigureServicesAsync(IApplicationServiceConfiguration context)
         {
-            PostConfigureServicesAsyncIsCalled=true;
+            PostConfigureServicesAsyncIsCalled = true;
             return base.PostConfigureServicesAsync(context);
+        }
+
+        public override void ConfigureServices(IApplicationServiceConfiguration config)
+        {
+            ConfigureServicesIsCalled = true;
+            base.ConfigureServices(config);
+        }
+
+        public override Task ConfigureServicesAsync(IApplicationServiceConfiguration config)
+        {
+            ConfigureServicesAsyncIsCalled = true;
+            return base.ConfigureServicesAsync(config);
         }
     }
 }

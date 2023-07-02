@@ -40,7 +40,7 @@ namespace Zeus.Core.Application.Modules
 
         }
 
-        public Task ConfigureServicesAsync(IApplicationServiceConfiguration config)
+        public virtual Task ConfigureServicesAsync(IApplicationServiceConfiguration config)
         {
             ConfigureServices(config);
             return Task.CompletedTask;

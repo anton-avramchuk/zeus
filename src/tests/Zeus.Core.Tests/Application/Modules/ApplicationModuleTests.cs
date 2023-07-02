@@ -28,6 +28,7 @@ namespace Zeus.Core.Tests.Application.Modules
         {
             var module=Create();
             module.ConfigureServices(_applicationServiceConfigurationMock.Object);
+            Assert.IsTrue(module.ConfigureServicesIsCalled);
         }
 
 
@@ -36,6 +37,7 @@ namespace Zeus.Core.Tests.Application.Modules
         {
             var module = Create();
             await module.ConfigureServicesAsync(_applicationServiceConfigurationMock.Object);
+            Assert.IsTrue(module.ConfigureServicesAsyncIsCalled);
         }
 
 
