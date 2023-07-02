@@ -1,6 +1,5 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using System.Data.Common;
 using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 using Zeus.Core.Application.Abstraction;
@@ -77,24 +76,24 @@ namespace Zeus.Core.Application.Modules
 
         }
 
-        public Task OnPreApplicationInitializationAsync([NotNull] IApplicationInitializationContext context)
+        public virtual Task OnPreApplicationInitializationAsync([NotNull] IApplicationInitializationContext context)
         {
             OnPreApplicationInitialization(context);
             return Task.CompletedTask;
         }
 
-        public void OnPreApplicationInitialization([NotNull] IApplicationInitializationContext context)
+        public virtual void OnPreApplicationInitialization([NotNull] IApplicationInitializationContext context)
         {
 
         }
 
-        public Task OnApplicationInitializationAsync([NotNull] IApplicationInitializationContext context)
+        public virtual Task OnApplicationInitializationAsync([NotNull] IApplicationInitializationContext context)
         {
             OnPreApplicationInitialization(context);
             return Task.CompletedTask;
         }
 
-        public void OnApplicationInitialization([NotNull] IApplicationInitializationContext context)
+        public virtual void OnApplicationInitialization([NotNull] IApplicationInitializationContext context)
         {
 
         }
@@ -147,34 +146,37 @@ namespace Zeus.Core.Application.Modules
             ServiceConfigurationContext.Services.PostConfigureAll(configureOptions);
         }
 
-        public Task PreConfigureServicesAsync(IApplicationServiceConfiguration context)
+        public virtual Task PreConfigureServicesAsync(IApplicationServiceConfiguration context)
         {
-            throw new NotImplementedException();
+            PreConfigureServices(context);
+            return Task.CompletedTask;
         }
 
-        public void PreConfigureServices(IApplicationServiceConfiguration context)
+        public virtual void PreConfigureServices(IApplicationServiceConfiguration context)
         {
-            throw new NotImplementedException();
+
         }
 
-        public Task OnApplicationShutdownAsync([NotNull] IApplicationShutdownContext context)
+        public virtual Task OnApplicationShutdownAsync([NotNull] IApplicationShutdownContext context)
         {
-            throw new NotImplementedException();
+            OnApplicationShutdown(context);
+            return Task.CompletedTask;
         }
 
-        public void OnApplicationShutdown([NotNull] IApplicationShutdownContext context)
+        public virtual void OnApplicationShutdown([NotNull] IApplicationShutdownContext context)
         {
-            throw new NotImplementedException();
+
         }
 
-        public Task PostConfigureServicesAsync(IApplicationServiceConfiguration context)
+        public virtual Task PostConfigureServicesAsync(IApplicationServiceConfiguration context)
         {
-            throw new NotImplementedException();
+            PostConfigureServices(context);
+            return Task.CompletedTask;
         }
 
-        public void PostConfigureServices(IApplicationServiceConfiguration context)
+        public virtual void PostConfigureServices(IApplicationServiceConfiguration context)
         {
-            throw new NotImplementedException();
+
         }
     }
 

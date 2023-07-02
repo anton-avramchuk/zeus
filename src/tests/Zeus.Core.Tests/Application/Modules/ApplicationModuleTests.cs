@@ -129,7 +129,7 @@ namespace Zeus.Core.Tests.Application.Modules
         public void CheckPostConfigureServices()
         {
             var module = Create();
-            module.PostConfigureServicesAsync(_applicationServiceConfigurationMock.Object);
+            module.PostConfigureServices(_applicationServiceConfigurationMock.Object);
         }
 
         [Test]
