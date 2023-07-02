@@ -9,12 +9,13 @@ namespace Zeus.Core.Tests.Application.Modules
     {
         private Mock<IApplicationInitializationContext> _applicationInitializationContextMock;
         private Mock<IApplicationServiceConfiguration> _applicationServiceConfigurationMock;
+        private Mock<IApplicationShutdownContext> _applicationShutdonwContextMock;
 
         [SetUp]
         public void SetUp() {
             _applicationInitializationContextMock = new Mock<IApplicationInitializationContext>();
             _applicationServiceConfigurationMock = new Mock<IApplicationServiceConfiguration>();
-            
+            _applicationShutdonwContextMock = new Mock<IApplicationShutdownContext>();            
         }
 
         private ApplicationModule Create()
@@ -67,5 +68,75 @@ namespace Zeus.Core.Tests.Application.Modules
             await module.OnPostApplicationInitializationAsync(_applicationInitializationContextMock.Object);
         }
 
+
+        [Test]
+        public void CheckOnPreApplicationInitialization()
+        {
+            var module = Create();
+            module.OnPreApplicationInitialization(_applicationInitializationContextMock.Object);
+        }
+
+        [Test]
+        public async Task CheckOnPreApplicationInitializationAsync()
+        {
+            var module = Create();
+            await module.OnPreApplicationInitializationAsync(_applicationInitializationContextMock.Object);
+        }
+
+        [Test]
+        public void CheckOnApplicationInitialization()
+        {
+            var module = Create();
+            module.OnApplicationInitialization(_applicationInitializationContextMock.Object);
+        }
+
+        [Test]
+        public async Task CheckOnApplicationInitializationAsync()
+        {
+            var module = Create();
+            await module.OnApplicationInitializationAsync(_applicationInitializationContextMock.Object);
+        }
+
+        [Test]
+        public void CheckPreConfigureServices()
+        {
+            var module = Create();
+            module.PreConfigureServices(_applicationServiceConfigurationMock.Object);
+        }
+
+        [Test]
+        public async Task CheckPreConfigureServicesAsync()
+        {
+            var module = Create();
+            await module.PreConfigureServicesAsync(_applicationServiceConfigurationMock.Object);
+        }
+
+        [Test]
+        public void CheckOnApplicationShutdown()
+        {
+            var module = Create();
+            module.OnApplicationShutdown(_applicationShutdonwContextMock.Object);
+        }
+
+        [Test]
+        public async Task CheckOnApplicationShutdownAsync()
+        {
+            var module = Create();
+            await module.OnApplicationShutdownAsync(_applicationShutdonwContextMock.Object);
+        }
+
+        [Test]
+        public void CheckPostConfigureServices()
+        {
+            var module = Create();
+            module.PostConfigureServicesAsync(_applicationServiceConfigurationMock.Object);
+        }
+
+        [Test]
+        public async Task CheckPostConfigureServicesAsync()
+        {
+            var module = Create();
+            await module.PostConfigureServicesAsync(_applicationServiceConfigurationMock.Object);
+        }
     }
 }

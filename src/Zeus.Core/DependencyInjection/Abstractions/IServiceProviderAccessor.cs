@@ -1,4 +1,4 @@
-﻿namespace Zeus.Core.Application.DependencyInjection.Abstractions
+﻿namespace Zeus.Core.DependencyInjection.Abstractions
 {
     public interface IServiceProviderAccessor
     {

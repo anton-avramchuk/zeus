@@ -1,4 +1,4 @@
-﻿using Zeus.Core.Application.DependencyInjection.Abstractions;
+﻿using Zeus.Core.DependencyInjection.Abstractions;
 
 namespace Zeus.Core.Application.Abstraction
 {
