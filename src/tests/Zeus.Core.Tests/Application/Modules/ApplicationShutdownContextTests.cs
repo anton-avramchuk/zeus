@@ -18,6 +18,7 @@ namespace Zeus.Core.Tests.Application.Modules
             return new ApplicationShutdownContext(_serviceProviderMock.Object);
         }
 
+        [Test]
         public void CheckServiceProviderIsNotull()
         {
             var context=Create();

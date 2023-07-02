@@ -18,7 +18,7 @@ namespace Zeus.Core.Tests.Application.Modules
             _applicationShutdonwContextMock = new Mock<IApplicationShutdownContext>();            
         }
 
-        private ApplicationModule Create()
+        private ApplicationModuleForTests Create()
         {
             return new ApplicationModuleForTests();
         }
@@ -58,6 +58,7 @@ namespace Zeus.Core.Tests.Application.Modules
         {
             var module = Create();
             module.OnPostApplicationInitialization(_applicationInitializationContextMock.Object);
+            Assert.IsTrue(module.OnPostApplicationInitializationIsCalled);
         }
 
 
@@ -66,6 +67,7 @@ namespace Zeus.Core.Tests.Application.Modules
         {
             var module = Create();
             await module.OnPostApplicationInitializationAsync(_applicationInitializationContextMock.Object);
+            Assert.IsTrue(module.OnPostApplicationInitializationAsyncIsCalled);
         }
 
 
@@ -74,6 +76,7 @@ namespace Zeus.Core.Tests.Application.Modules
         {
             var module = Create();
             module.OnPreApplicationInitialization(_applicationInitializationContextMock.Object);
+            Assert.IsTrue(module.OnPreApplicationInitializationIsCalled);
         }
 
         [Test]
@@ -81,6 +84,7 @@ namespace Zeus.Core.Tests.Application.Modules
         {
             var module = Create();
             await module.OnPreApplicationInitializationAsync(_applicationInitializationContextMock.Object);
+            Assert.IsTrue(module.OnPreApplicationInitializationAsyncIsCalled);
         }
 
         [Test]
@@ -88,6 +92,7 @@ namespace Zeus.Core.Tests.Application.Modules
         {
             var module = Create();
             module.OnApplicationInitialization(_applicationInitializationContextMock.Object);
+            Assert.IsTrue(module.OnApplicationInitializeIsCalled);
         }
 
         [Test]
@@ -95,6 +100,7 @@ namespace Zeus.Core.Tests.Application.Modules
         {
             var module = Create();
             await module.OnApplicationInitializationAsync(_applicationInitializationContextMock.Object);
+            Assert.IsTrue(module.OnApplicationInitializeAsyncIsCalled);
         }
 
         [Test]
@@ -102,6 +108,7 @@ namespace Zeus.Core.Tests.Application.Modules
         {
             var module = Create();
             module.PreConfigureServices(_applicationServiceConfigurationMock.Object);
+            Assert.IsTrue(module.PreConfigureServicesIsCalled);
         }
 
         [Test]
@@ -109,6 +116,7 @@ namespace Zeus.Core.Tests.Application.Modules
         {
             var module = Create();
             await module.PreConfigureServicesAsync(_applicationServiceConfigurationMock.Object);
+            Assert.IsTrue(module.PreConfigureServicesAsyncIsCalled);
         }
 
         [Test]
@@ -116,6 +124,7 @@ namespace Zeus.Core.Tests.Application.Modules
         {
             var module = Create();
             module.OnApplicationShutdown(_applicationShutdonwContextMock.Object);
+            Assert.IsTrue(module.OnApplicationShutdownIsCalled);
         }
 
         [Test]
@@ -123,6 +132,7 @@ namespace Zeus.Core.Tests.Application.Modules
         {
             var module = Create();
             await module.OnApplicationShutdownAsync(_applicationShutdonwContextMock.Object);
+            Assert.IsTrue(module.OnApplicationShutdownAsyncIsCalled);
         }
 
         [Test]
@@ -130,6 +140,7 @@ namespace Zeus.Core.Tests.Application.Modules
         {
             var module = Create();
             module.PostConfigureServices(_applicationServiceConfigurationMock.Object);
+            Assert.IsTrue(module.PostConfigureServicesIsCalled);
         }
 
         [Test]
@@ -137,6 +148,7 @@ namespace Zeus.Core.Tests.Application.Modules
         {
             var module = Create();
             await module.PostConfigureServicesAsync(_applicationServiceConfigurationMock.Object);
+            Assert.IsTrue(module.PostConfigureServicesAsyncIsCalled);
         }
     }
 }
