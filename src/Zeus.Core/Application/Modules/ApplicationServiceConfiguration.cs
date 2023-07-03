@@ -26,7 +26,7 @@ namespace Zeus.Core.Application.Modules
             set => Items[key] = value;
         }
 
-        public ApplicationServiceConfiguration([NotNull] IServiceCollection services)
+        public ApplicationServiceConfiguration(IServiceCollection services)
         {
             Services = services;
             Items = new Dictionary<string, object?>();
