@@ -8,6 +8,7 @@ using Zeus.Core.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Zeus.Core.Logs.Abstractions;
 using Microsoft.Extensions.Hosting;
+using Zeus.Core.Application.Exceptions;
 
 namespace Zeus.Core.Application.Abstraction
 {
@@ -259,7 +260,7 @@ namespace Zeus.Core.Application.Abstraction
                 }
                 catch (Exception ex)
                 {
-                    throw new AbpInitializationException($"An error occurred during {nameof(IPreConfigureServices.PreConfigureServices)} phase of the module {module.Type.AssemblyQualifiedName}. See the inner exception for details.", ex);
+                    throw new ZeusInitializationException($"An error occurred during {nameof(IPreConfigureServices.PreConfigureServices)} phase of the module {module.Type.AssemblyQualifiedName}. See the inner exception for details.", ex);
                 }
             }
 
@@ -268,16 +269,22 @@ namespace Zeus.Core.Application.Abstraction
             //ConfigureServices
             foreach (var module in Modules)
             {
-                if (module.Instance is AbpModule abpModule)
+                if (module.Instance is ApplicationModule applicationModule)
                 {
-                    if (!abpModule.SkipAutoServiceRegistration)
+                    //if (!applicationModule.SkipAutoServiceRegistration)
+                    //{
+                    //    var assembly = module.Type.Assembly;
+                    //    if (!assemblies.Contains(assembly))
+                    //    {
+                    //        Services.AddAssembly(assembly);
+                    //        assemblies.Add(assembly);
+                    //    }
+                    //}
+                    var assembly = module.Type.Assembly;
+                    if (!assemblies.Contains(assembly))
                     {
-                        var assembly = module.Type.Assembly;
-                        if (!assemblies.Contains(assembly))
-                        {
-                            Services.AddAssembly(assembly);
-                            assemblies.Add(assembly);
-                        }
+                        Services.AddAssembly(assembly);
+                        assemblies.Add(assembly);
                     }
                 }
 
@@ -287,7 +294,7 @@ namespace Zeus.Core.Application.Abstraction
                 }
                 catch (Exception ex)
                 {
-                    throw new AbpInitializationException($"An error occurred during {nameof(IAbpModule.ConfigureServices)} phase of the module {module.Type.AssemblyQualifiedName}. See the inner exception for details.", ex);
+                    throw new ZeusInitializationException($"An error occurred during {nameof(IApplicationModule.ConfigureServices)} phase of the module {module.Type.AssemblyQualifiedName}. See the inner exception for details.", ex);
                 }
             }
 
@@ -300,15 +307,15 @@ namespace Zeus.Core.Application.Abstraction
                 }
                 catch (Exception ex)
                 {
-                    throw new AbpInitializationException($"An error occurred during {nameof(IPostConfigureServices.PostConfigureServices)} phase of the module {module.Type.AssemblyQualifiedName}. See the inner exception for details.", ex);
+                    throw new ZeusInitializationException($"An error occurred during {nameof(IPostConfigureServices.PostConfigureServices)} phase of the module {module.Type.AssemblyQualifiedName}. See the inner exception for details.", ex);
                 }
             }
 
             foreach (var module in Modules)
             {
-                if (module.Instance is AbpModule abpModule)
+                if (module.Instance is ApplicationModule applicationModule)
                 {
-                    abpModule.ServiceConfigurationContext = null!;
+                    applicationModule.ServiceConfigurationContext = null!;
                 }
             }
 
