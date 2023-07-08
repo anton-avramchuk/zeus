@@ -1,6 +1,9 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
-using System.Runtime.CompilerServices;
+using Zeus.Core.Application.Modules.Attributes;
+using Zeus.Core.DependencyInjection.Abstractions;
+using Zeus.Core.DependencyInjection.Attributes;
+using Zeus.Core.Extensions.DependencyInjection;
 using Zeus.Core.Reflection;
 
 namespace Zeus.Core.DependencyInjection

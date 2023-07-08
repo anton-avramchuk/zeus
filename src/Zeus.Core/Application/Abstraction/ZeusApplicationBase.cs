@@ -6,9 +6,9 @@ using Zeus.Core.Application.Modules;
 using Zeus.Core.DependencyInjection;
 using Zeus.Core.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using Zeus.Core.Logs.Abstractions;
 using Microsoft.Extensions.Hosting;
 using Zeus.Core.Application.Exceptions;
+using Zeus.Core.Logging.Abstractions;
 
 namespace Zeus.Core.Application.Abstraction
 {

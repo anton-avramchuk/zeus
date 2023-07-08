@@ -13,5 +13,7 @@ namespace Zeus.Core.Application.Modules.Abstractions
         bool IsLoadedAsPlugIn { get; }
 
         IReadOnlyList<IApplicationModuleDescriptor> Dependencies { get; }
+
+        public void AddDependency(IApplicationModuleDescriptor descriptor);
     }
 }

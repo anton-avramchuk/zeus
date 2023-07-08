@@ -7,6 +7,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using Zeus.Core.DependencyInjection.Abstractions;
+using Zeus.Core.DependencyInjection.Collections;
 
 namespace Zeus.Core.DependencyInjection
 {
