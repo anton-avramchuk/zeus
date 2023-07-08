@@ -6,6 +6,10 @@ using Zeus.Core.Reflection;
 using Zeus.Core.Application.Abstraction;
 using Zeus.Core.Application.Modules;
 using Zeus.Core.Extensions.DependencyInjection;
+using Zeus.Core.Extensions.Configuration;
+using Zeus.Core.Application.Modules.Abstractions;
+using Microsoft.Extensions.DependencyInjection.Extensions;
+using Zeus.Core.Logging;
 
 namespace Zeus.Core.Application.Internal
 {
@@ -35,7 +39,7 @@ namespace Zeus.Core.Application.Internal
                 );
             }
 
-            services.TryAddSingleton<IModuleLoader>(moduleLoader);
+            services.TryAddSingleton<IApplicationModuleLoader>(moduleLoader);
             services.TryAddSingleton<IAssemblyFinder>(assemblyFinder);
             services.TryAddSingleton<ITypeFinder>(typeFinder);
             services.TryAddSingleton<IInitLoggerFactory>(new DefaultInitLoggerFactory());

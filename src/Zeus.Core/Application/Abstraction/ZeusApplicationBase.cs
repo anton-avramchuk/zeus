@@ -9,6 +9,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Hosting;
 using Zeus.Core.Application.Exceptions;
 using Zeus.Core.Logging.Abstractions;
+using Zeus.Core.Application.Internal;
 
 namespace Zeus.Core.Application.Abstraction
 {
