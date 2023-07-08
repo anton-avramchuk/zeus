@@ -1,4 +1,4 @@
-﻿namespace Zeus.Core.Extensions
+﻿namespace Zeus.Core.Extensions.Common
 {
     /// <summary>
     /// Extension methods for <see cref="IComparable{T}"/>.

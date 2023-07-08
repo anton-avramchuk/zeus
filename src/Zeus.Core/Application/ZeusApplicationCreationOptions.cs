@@ -1,4 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using Zeus.Core.Application.Configuration;
+using Zeus.Core.Application.Configuration.Abstractions;
 
 namespace Zeus.Core.Application
 {
@@ -12,7 +14,7 @@ namespace Zeus.Core.Application
         /// <summary>
         /// The options in this property only take effect when IConfiguration not registered.
         /// </summary>
-        public ZeusConfigurationBuilderOptions Configuration { get; }
+        public IZeusConfigurationBuilderOptions Configuration { get; }
 
         public bool SkipConfigureServices { get; set; }
 

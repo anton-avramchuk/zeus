@@ -1,14 +1,11 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Zeus.Core.Logging.Abstractions;
 using Zeus.Core.Reflection.Abstractions;
 using Zeus.Core.Reflection;
 using Zeus.Core.Application.Abstraction;
+using Zeus.Core.Application.Modules;
+using Zeus.Core.Extensions.DependencyInjection;
 
 namespace Zeus.Core.Application.Internal
 {

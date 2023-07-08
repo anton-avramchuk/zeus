@@ -1,8 +1,9 @@
 ﻿using System.Reflection;
+using Zeus.Core.Application.Configuration.Abstractions;
 
-namespace Zeus.Core.Application
+namespace Zeus.Core.Application.Configuration
 {
-    public class ZeusConfigurationBuilderOptions
+    public class ZeusConfigurationBuilderOptions : IZeusConfigurationBuilderOptions
     {
         /// <summary>
         /// Used to set assembly which is used to get the user secret id for the application.
