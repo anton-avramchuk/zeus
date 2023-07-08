@@ -10,6 +10,7 @@ using Zeus.Core.Extensions.Configuration;
 using Zeus.Core.Application.Modules.Abstractions;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Zeus.Core.Logging;
+using Zeus.Core.DependencyInjection;
 
 namespace Zeus.Core.Application.Internal
 {
@@ -44,7 +45,7 @@ namespace Zeus.Core.Application.Internal
             services.TryAddSingleton<ITypeFinder>(typeFinder);
             services.TryAddSingleton<IInitLoggerFactory>(new DefaultInitLoggerFactory());
 
-            services.AddAssemblyOf<IAbpApplication>();
+            services.AddAssemblyOf<IZeusApplication>();
 
             services.AddTransient(typeof(ISimpleStateCheckerManager<>), typeof(SimpleStateCheckerManager<>));
 
